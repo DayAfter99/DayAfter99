@@ -24,7 +24,7 @@
   <script>
   jQuery(function($) {
     $('.typist')
-      .typist({ speed: 8 })
+      .typist({ speed: 6 })
       .typistPause(1000)
       .typistAdd('末日戰爭結束了。')
       .typistPause(2000)
@@ -33,12 +33,12 @@
       .typistAdd('\n\n而死去的人類醒了過來\n——作為死者繼續存在。');
   });
 
-  jQuery(function($) {
+  /*jQuery(function($) {
     $('.title')
       .typistPause(12900)
       .typistAdd('在那之後的九十九天')
       .typistStop();
-  });
+  });*/
   </script>
 </head>
 
@@ -47,11 +47,16 @@
   <section>
     <div class="container">
       <p class="transbox typist"></p>
-      <button class="button">
-        <a href="home.html" class="title button"></a>
-      </button>
     </div>
   </section>
+
+  <footer id="id_footer">
+    <div>
+      <button class="button">
+        <span><a href="home.html">在那之後的九十九天</a></span> 
+      </button>
+    </div>
+  </footer> <!-- /id_footer -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

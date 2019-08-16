@@ -27,11 +27,11 @@
 
 </head>
 
-<body id="page-top">
+<body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">佈告欄</span>
+    <a class="navbar-brand" href="https://www.plurk.com/Day_after99">
+      <span class="d-block d-lg-none">在那之後的九十九天</span>
       <span class="d-none d-lg-block">
         <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
       </span>
@@ -70,14 +70,14 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex">
       <div class="col-lg-9 homefix">
-        <h2>公告</h2>
+        <h5>公告</h5>
         <div id="timer"></div>
       </div>
       <div class="col-lg-3 homefloat">
-        <img src="img/sorority1.png" style="width:100%; ">
+        <img src="img/Sorority.png" style="width:100%;">
         <div class="container-picture">
-          <img src="img/dialog.png" style="width:100%; height:150px;">
-          <div class="centered" style="text-decoration-color: white;">人物半身效果:<br/>尺寸(長*寬):<br/>832*604</div>
+          <img src="img/dialog.png" style="width:100%; height:100%;">
+          <div class="centered">尺寸(長*寬):<br/>800*600</div>
         </div>
       </div>
     </section>
@@ -94,7 +94,7 @@
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
 
-  <!-- 測試用 計時器 -->
+  <!--倒數計時器 -->
   <script>
   // Set the date we're counting down to
   var countDownDate = new Date("Sep 1, 2019 00:00:00").getTime();
@@ -115,13 +115,13 @@
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
     // Output the result in an element with id="demo"
-    document.getElementById("timer").innerHTML ="距離企劃開始還有 " + days + "天 " + hours + "時 "
+    document.getElementById("timer").innerHTML ="距離企劃公開還有 " + days + "天 " + hours + "時 "
     + minutes + "分 " + seconds + "秒";
       
     // If the count down is over, write some text 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("demo").innerHTML = "企劃正式開始！";
+      document.getElementById("demo").innerHTML = "企劃正式公開！";
     }
   }, 1000);
   </script>
