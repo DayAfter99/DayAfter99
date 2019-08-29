@@ -30,7 +30,7 @@
       .typistPause(2000)
       .typistAdd('\n\n海洋受到汙染；\n大地變得荒蕪；\n人類不再誕生。')
       .typistPause(2000)
-      .typistAdd('\n\n而死去的人類醒了過來\n——作為死者繼續存在。');
+      .typistAdd('\n\n而死去的人類醒了過來\n——作為不死者繼續存在。');
   });
 
   /*jQuery(function($) {
@@ -40,6 +40,13 @@
       .typistStop();
   });*/
   </script>
+
+  <style type="text/css">
+    body {
+      -moz-user-select : none;
+      -webkit-user-select: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -53,7 +60,7 @@
   <footer id="id_footer">
     <div>
       <button class="button">
-        <span><a href="home.html">在那之後的九十九天</a></span> 
+        <span><a href="home.html">在那之後的九十九天</a></span>
       </button>
     </div>
   </footer> <!-- /id_footer -->
@@ -61,6 +68,39 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 禁止右鍵 -->
+  <script type="text/javascript">
+    function iEsc(){ return false; }
+    function iRec(){ return true; }
+    function DisableKeys() {
+      if(event.ctrlKey || event.shiftKey || event.altKey) {
+        window.event.returnValue=false;
+        iEsc();
+      }
+    }
+    document.ondragstart=iEsc;
+    document.onkeydown=DisableKeys;
+    document.oncontextmenu=iEsc;
+    if (typeof document.onselectstart !="undefined")
+      document.onselectstart=iEsc;
+    else{
+      document.onmousedown=iEsc;
+      document.onmouseup=iRec;
+    }
+    function DisableRightClick(qsyzDOTnet){
+      if (window.Event){
+        if (qsyzDOTnet.which == 2 || qsyzDOTnet.which == 3)
+          iEsc();
+      }else{
+        if (event.button == 2 || event.button == 3){
+          event.cancelBubble = true
+          event.returnValue = false;
+          iEsc();
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>

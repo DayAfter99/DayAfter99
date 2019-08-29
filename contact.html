@@ -33,7 +33,7 @@
     <a class="navbar-brand" href="https://www.plurk.com/Day_after99">
       <span class="d-block d-lg-none">在那之後的九十九天</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.png" alt="">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
           <a class="nav-link" href="home.html">佈告欄</a>
         </li>
         <li class="nav-item container1 topBotomBordersIn">
-          <a class="nav-link" href="about.html">關於</a>
+          <a class="nav-link" href="about.html">導覽手冊</a>
         </li>
         <li class="nav-item container1 topBotomBordersIn">
           <a class="nav-link" href="diagram.html">人偶設計圖</a>
@@ -68,25 +68,66 @@
 
   <div class="container-fluid p-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="1">
-      <div class="col-lg-9 col-md-12 col-sm-12 homefix" style="margin-top: 50px;">
-        <p>官方噗浪</p>
-        <br/>
-        <p>違規舉報</p>
-        <br/>
-        <p>投稿處</p>
-      </div>
-      <div class="col-lg-3 homefloat">
+    <section class="resume-section p-3 p-lg-5 d-flex">
+      <div class="col-lg-9 homefix">
+        <ul class="tabs">
+          <li class="active">聯絡官方</li>
+          <li>FAQ</li>
+          <li>特別感謝</li>
+        </ul>
 
-        <div class="container-picture box box2">
-          <img src="img/Court.png" style="width:100%; height:100%;">
-          <img src="img/dialog.png" style="width:100%; height:100%;">
-          <div class="centered">聯絡官方</div>
-        </div>
+        <ul class="tab__content">
+          <li class="active">
+            <div class="content__wrapper">
+              <h5><a href="https://www.plurk.com/Day_after99" target="_blank">官方噗浪</a></h5>
 
-        <div class="box box1">
+              <hr class="style-one">
+
+              <h5>企劃素材</h5>
+              <p>企劃橫向LOGO</p>
+              <img src="img/99DAY-LOGO.png" style="width: 300px;">
+
+              <p>企劃噗浪用表符</p>
+              待補。<br/>
+
+              <hr class="style-one">
+
+              <h5><a href="https://forms.gle/4YM3jRKsPaiw4fv9A" target="_blank">違規檢舉表單</a></h5>
+
+              <h5><a href="https://forms.gle/VYTtX2zEdtJbuufg9" target="_blank">委託板及怪物投稿表單</a></h5>
+
+            </div>
+          </li>
           
+          <li>
+            <div class="content__wrapper">
+              
+              <h4>常見問題一覽</h4>
+
+              <p>有還沒未獲得解答的疑問嗎？</p>
+              <button class="button">
+                <span><a href="https://ask.fm/daysafter99" target="_blank">點擊前往發問</a></span>
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <div class="content__wrapper">
+              專有名詞翻譯授權☞<a href="https://sites.google.com/site/nechronicaintaiwan/" target="_blank">死靈年代記之永遠的後日談</a><br/>
+              LOGO、地圖繪製☞虫太郎
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 homefloat">
+        <div class="container-picture box box2">
+          <img src="img/dialog.png" style="width:100%; height:100%;">
+          <img src="img/Court.png" style="width:100%; height:100%;">
+          <div class="centered">你好，有什麼需要我協助的地方嗎？</div>
         </div>
+
+        <div class="box box1"></div>
       </div>
     </section>
 
@@ -101,6 +142,98 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
+
+  <!-- 分頁 -->
+  <script>
+    $(document).ready(function(){
+    
+    // Variables
+    var clickedTab = $(".tabs > .active");
+    var tabWrapper = $(".tab__content");
+    var activeTab = tabWrapper.find(".active");
+    var activeTabHeight = activeTab.outerHeight();
+    
+    // Show tab on page load
+    activeTab.show();
+    
+    // Set height of wrapper on page load
+    tabWrapper.height(activeTabHeight);
+    
+    $(".tabs > li").on("click", function() {
+      
+      // Remove class from active tab
+      $(".tabs > li").removeClass("active");
+      
+      // Add class active to clicked tab
+      $(this).addClass("active");
+      
+      // Update clickedTab variable
+      clickedTab = $(".tabs .active");
+      
+      // fade out active tab
+      activeTab.fadeOut(250, function() {
+        
+        // Remove active class all tabs
+        $(".tab__content > li").removeClass("active");
+        
+        // Get index of clicked tab
+        var clickedTabIndex = clickedTab.index();
+
+        // Add class active to corresponding tab
+        $(".tab__content > li").eq(clickedTabIndex).addClass("active");
+        
+        // update new active tab
+        activeTab = $(".tab__content > .active");
+        
+        // Update variable
+        activeTabHeight = activeTab.outerHeight();
+        
+        // Animate height of wrapper to new tab height
+        tabWrapper.stop().delay(50).animate({
+          height: activeTabHeight
+        }, 500, function() {
+          
+          // Fade in active tab
+          activeTab.delay(50).fadeIn(250);
+          
+        });
+      });
+    });
+  });
+  </script>
+
+  <!-- 禁止右鍵 -->
+  <script type="text/javascript">
+    function iEsc(){ return false; }
+    function iRec(){ return true; }
+    function DisableKeys() {
+      if(event.ctrlKey || event.shiftKey || event.altKey) {
+        window.event.returnValue=false;
+        iEsc();
+      }
+    }
+    document.ondragstart=iEsc;
+    document.onkeydown=DisableKeys;
+    document.oncontextmenu=iEsc;
+    if (typeof document.onselectstart !="undefined")
+      document.onselectstart=iEsc;
+    else{
+      document.onmousedown=iEsc;
+      document.onmouseup=iRec;
+    }
+    function DisableRightClick(qsyzDOTnet){
+      if (window.Event){
+        if (qsyzDOTnet.which == 2 || qsyzDOTnet.which == 3)
+          iEsc();
+      }else{
+        if (event.button == 2 || event.button == 3){
+          event.cancelBubble = true
+          event.returnValue = false;
+          iEsc();
+        }
+      }
+    }
+  </script>
 
 </body>
 

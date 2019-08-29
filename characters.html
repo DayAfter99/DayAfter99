@@ -33,7 +33,7 @@
     <a class="navbar-brand" href="https://www.plurk.com/Day_after99">
       <span class="d-block d-lg-none">在那之後的九十九天</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.png" alt="">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
           <a class="nav-link" href="home.html">佈告欄</a>
         </li>
         <li class="nav-item container1 topBotomBordersIn">
-          <a class="nav-link" href="about.html">關於</a>
+          <a class="nav-link" href="about.html">導覽手冊</a>
         </li>
         <li class="nav-item container1 topBotomBordersIn">
           <a class="nav-link" href="diagram.html">人偶設計圖</a>
@@ -68,63 +68,52 @@
 
   <div class="container-fluid p-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="1">
-      <div class="col-lg-9 col-md-12 col-sm-12 homefix" style="margin-top: 50px;">
-        <h5>NPC名冊-NPC的房間</h5>
-        
+    <section class="resume-section p-3 p-lg-5 d-flex">
+      <div class="col-lg-9 homefix">
+        <ul class="tabs">
+          <li class="active">死者之國</li>
+          <li>六姊妹</li>
+          <li>居民列表</li>
+          <li>登記入籍</li>
+        </ul>
+
+        <ul class="tab__content">
+          <li class="active">
+            <div class="content__wrapper">
+              <h4>地圖</h4>
+            </div>
+          </li>
+          
+          <li>
+            <div class="content__wrapper">
+              <h4>姊妹房間</h4>
+            </div>
+          </li>
+
+          <li>
+            <div class="content__wrapper">
+              <h4>暫不開放</h4>
+            </div>
+          </li>
+
+          <li class="active">
+            <div class="content__wrapper">
+              <h4>暫不開放</h4>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <div class="col-lg-3 homefloat">
         <div class="container-picture box box2">
-          <img src="img/Alice.png" style="width:100%; height:100%;">
           <img src="img/dialog.png" style="width:100%; height:100%;">
-          <div class="centered navbar-collapse">
-            <ul class="w3-ul navbar-nav">
-              <li class="nav-item container1">
-                <a class="js-scroll-trigger nav-link" href="#1">NPC</a>
-              </li>
-              <li>
-                <a class="js-scroll-trigger nav-link" href="#2">居民列表</a>
-              </li>
-              <li>
-                <a class="js-scroll-trigger nav-link" href="#3">登記入籍</a>
-              </li>
-            </ul>
-          </div>
+          <img src="img/Alice.png" style="width:100%; height:100%;">
+          <div class="centered">在這裡你永遠不會孤單的呦，杉杉和大家一直都在身邊的。</div>
         </div>
       </div>
 
-      <div class="box box1" id="B">
-          <div class="navbar-collapse">
-            <ul class="w3-ul">
-              <li class="nav-item container1">
-                <a class="js-scroll-trigger" href="#1">NPC</a>
-              </li>
-              <li>
-                <a class="js-scroll-trigger" href="#2">居民列表</a>
-              </li>
-              <li>
-                <a class="js-scroll-trigger" href="#3">登記入籍</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <div class="box box1"></div>
 
-    </section>
-
-    <section class="resume-section p-3 p-lg-5 d-flex" id="2">
-      <div class="col-lg-9 col-md-12 col-sm-12 homefix" style="margin-top: 50px;">
-        <h5>居民列表</h5>
-        
-      </div>
-    </section>
-
-    <section class="resume-section p-3 p-lg-5 d-flex" id="3">
-      <div class="col-lg-9 col-md-12 col-sm-12 homefix" style="margin-top: 50px;">
-        <h5>登記入籍</h5>
-        
-      </div>
     </section>
 
   </div>
@@ -138,6 +127,98 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
+
+  <!-- 分頁 -->
+  <script>
+    $(document).ready(function(){
+    
+    // Variables
+    var clickedTab = $(".tabs > .active");
+    var tabWrapper = $(".tab__content");
+    var activeTab = tabWrapper.find(".active");
+    var activeTabHeight = activeTab.outerHeight();
+    
+    // Show tab on page load
+    activeTab.show();
+    
+    // Set height of wrapper on page load
+    tabWrapper.height(activeTabHeight);
+    
+    $(".tabs > li").on("click", function() {
+      
+      // Remove class from active tab
+      $(".tabs > li").removeClass("active");
+      
+      // Add class active to clicked tab
+      $(this).addClass("active");
+      
+      // Update clickedTab variable
+      clickedTab = $(".tabs .active");
+      
+      // fade out active tab
+      activeTab.fadeOut(250, function() {
+        
+        // Remove active class all tabs
+        $(".tab__content > li").removeClass("active");
+        
+        // Get index of clicked tab
+        var clickedTabIndex = clickedTab.index();
+
+        // Add class active to corresponding tab
+        $(".tab__content > li").eq(clickedTabIndex).addClass("active");
+        
+        // update new active tab
+        activeTab = $(".tab__content > .active");
+        
+        // Update variable
+        activeTabHeight = activeTab.outerHeight();
+        
+        // Animate height of wrapper to new tab height
+        tabWrapper.stop().delay(50).animate({
+          height: activeTabHeight
+        }, 500, function() {
+          
+          // Fade in active tab
+          activeTab.delay(50).fadeIn(250);
+          
+        });
+      });
+    });
+  });
+  </script>
+
+  <!-- 禁止右鍵 -->
+  <script type="text/javascript">
+    function iEsc(){ return false; }
+    function iRec(){ return true; }
+    function DisableKeys() {
+      if(event.ctrlKey || event.shiftKey || event.altKey) {
+        window.event.returnValue=false;
+        iEsc();
+      }
+    }
+    document.ondragstart=iEsc;
+    document.onkeydown=DisableKeys;
+    document.oncontextmenu=iEsc;
+    if (typeof document.onselectstart !="undefined")
+      document.onselectstart=iEsc;
+    else{
+      document.onmousedown=iEsc;
+      document.onmouseup=iRec;
+    }
+    function DisableRightClick(qsyzDOTnet){
+      if (window.Event){
+        if (qsyzDOTnet.which == 2 || qsyzDOTnet.which == 3)
+          iEsc();
+      }else{
+        if (event.button == 2 || event.button == 3){
+          event.cancelBubble = true
+          event.returnValue = false;
+          iEsc();
+        }
+      }
+    }
+  </script>
 
 </body>
 
