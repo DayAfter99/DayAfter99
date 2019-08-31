@@ -21,6 +21,18 @@ canvas {
   position: relative;
 }
 
+p {
+  text-align: left;
+}
+
+ol {
+  line-height: 30px;
+}
+
+li {
+  text-align: left;
+}
+
 /* Style the top navigation bar */
 .navbar {
   display: flex;
