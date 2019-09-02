@@ -42,10 +42,10 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand" href="https://www.plurk.com/Day_after99">
+    <a class="navbar-brand" href="https://www.plurk.com/Day_after99" target="_blank">
       <span class="d-block d-lg-none">在那之後的九十九天</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.png" alt="">
+        <img class="img-fluid mx-auto mb-2" src="img/profile.png">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,6 +105,8 @@
 
                 <h4>範例設計圖</h4>
 
+                <a href="https://imgur.com/5DdJoHT" target="_blank"><img src="img/DiagramSample.png"></a>
+
                 <ol>
                   <li>
                     名稱：角色的名字，角色醒來時少數記得的事情之一。這個名字可以是任何語言，甚至數字、編碼都沒關係。
@@ -127,16 +129,16 @@
                     玩家可替【寶物】進行詳細的設定。如無法決定歡迎參考下方的【附件：寶物列表】。
                   </li>
                   <li>
-                    HP：初始為10。
+                    HP：初始值為10。會根據持有的強化部件有所增加。無論討伐成功於否，戰鬥結束時都會回到最大HP。
                   </li>
                   <li>
-                    行動值：即角色的敏捷。在進行戰鬥時，依行動值高到低的順序進行攻擊擲骰。角色初期的行動值皆為9。
+                    行動值：初始值為9。即角色的敏捷。會根據持有的強化部件有所增加。在進行戰鬥時，依行動值高到低的順序進行攻擊擲骰。
                   </li>
                   <li>
-                    攻擊力：
+                    攻擊力：初始值為1。會根據持有的強化部件有所增加。
                   </li>
                   <li>
-                    防禦力：
+                    防禦力：初始值為0。會根據持有的強化部件有所增加。
                   </li>
                   <li>
                     記憶碎片：角色甦醒時擁有的片段記憶。角色初期僅持有2個，在完成Event時有機會獲得新的記憶碎片。<br/>
@@ -201,27 +203,31 @@
                 <hr class="style-one">
 
                 <h4>空白人偶設計圖及居民證</h4>
-
-                  <button class="button learn-more">
+                <div class="row" style="display:block; margin:auto;">
+                  <button class="learn-more">
                     <a href="https://docs.google.com/spreadsheets/d/1nOh60Pygn7nlAHU7wt88tCGBZvDT3k0NohGUDaIOVXU/edit?usp=sharing" target="_blank">爆發型人偶設計圖</a>
                   </button>
 
-                  <button class="button learn-more">
+                  <button class="learn-more">
                     <a href="https://docs.google.com/spreadsheets/d/1imYX5PscxTtIBdDrDQifC6I1f0ydt1oU2axeXcHs9r4/edit?usp=sharing" target="_blank">連擊型人偶設計圖</a>
                   </button>
-
-                  <button class="button learn-more">
+                </div>
+                <div class="row" style="display:block; margin:auto;">
+                  <button class="learn-more">
                     <a href="https://docs.google.com/spreadsheets/d/1PhyciOF4DV-PYkGmLpBdUDVush3UBETiSdHb7eQ6cqo/edit?usp=sharing" target="_blank">回復型人偶設計圖</a>
                   </button>
 
-                  <button class="button learn-more">
+                  <button class="learn-more">
                     <a href="https://docs.google.com/spreadsheets/d/1WpsQvKalLDS98GEQ1Te1TnxeAnB0VP9a-li__WsuVHo/edit?usp=sharing" target="_blank">控場型人偶設計圖</a>
                   </button>
+                </div>
+                  <img src="img/IDCard.png">
 
                 <button class="button learn-more">
-                  <a href="https://imgur.com/PjkDK26" target="_blank">居民證</a>
+                  <a href="https://imgur.com/PjkDK26" target="_blank">空白居民證</a>
                 </button>
-                <p>※填寫居民證時請勿使用紙娃娃，文手可留空。</p>
+                <br/>
+                ※填寫居民證時請勿使用紙娃娃，文手可留空。
 
               </div>
             </div>
@@ -267,16 +273,25 @@
                 <p>3. 確認攻擊成功時，進入傷害判定</p>
                 <p>有防禦→雙方進行攻防相消→攻擊力>防禦力時造成傷害，該方HP減少</p>
                 <p>無防禦→直接造成傷害，該方HP減少</p>
-                <p>HP皆為個別計算，HP歸零的角色失去戰鬥能力。</p>
+                <p>組隊討伐時HP為總和計算，HP歸零的一方失去戰鬥能力。</p>
                 <br/>
                 <p>4.當怪物HP=0時即討伐成功，可以從怪物身上取得素材。</p>
                 <p>每場成功的討伐必定取得一樣掉落素材；掉落素材不只一種的情況下，各自骰(DICE4)決定。</p>
 
+                <a href="https://i.imgur.com/bICSkSO.png" target="_blank"><img src="https://i.imgur.com/bICSkSO.png"></a>
 
                 <hr class="style-one">
 
                 <h4>戰鬥範例</h4>
-                待補。
+                <p>討伐</p>
+                <p>討伐分為單人討伐及組隊討伐。2人以上的多人討伐稱之為組隊討伐。組隊討伐時，僅能選擇與可挑戰人數相對應的怪物。</p>
+
+                【單人討伐】<br/>
+                <a href="https://i.imgur.com/F5rajin.png" target="_blank"><img src="https://i.imgur.com/12zQXcJ.png"></a><br/>
+                【組隊討伐】<br/>
+                <a href="https://i.imgur.com/piTx3T7.png" target="_blank"><img src="https://i.imgur.com/G60QYOw.png"></a><br/>
+                【PvP】<br/>
+                <a href="https://i.imgur.com/smJvDUw.png" target="_blank"><img src="https://i.imgur.com/m7A3lIC.png"></a>
 
               </div>
             </div>
